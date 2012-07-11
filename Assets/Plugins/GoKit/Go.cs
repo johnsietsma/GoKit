@@ -15,6 +15,10 @@ public class Go : MonoBehaviour
 	public static DuplicatePropertyRuleType duplicatePropertyRule = DuplicatePropertyRuleType.None;
 	public static GoLogLevel logLevel = GoLogLevel.Warn;
 	
+	// validates that the target object still exists each tick of the tween. NOTE: it is recommended
+	// that you just properly remove your tweens before destroying any objects even though this might destroy them for you
+	public static bool validateTargetObjectsEachTick = true;
+	
 	private static List<AbstractTween> _tweens = new List<AbstractTween>(); // contains Tweens, TweenChains and TweenFlows
 	private bool _timeScaleIndependentUpdateIsRunning;
 	
@@ -26,7 +30,7 @@ public class Go : MonoBehaviour
 		{
 			if( !_instance )
 			{
-				// check if an P31TaskManager is already available in the scene graph
+				// check if there is a GO instance already available in the scene graph
 				_instance = FindObjectOfType( typeof( Go ) ) as Go;
 
 				// nope, create a new one
@@ -40,15 +44,6 @@ public class Go : MonoBehaviour
 
 			return _instance;
 		}
-	}
-	
-	
-	static Go()
-	{
-		// create an instance so it is always ready for use
-		#pragma warning disable 0168
-		var g = Go.instance;
-		#pragma warning restore 0168
 	}
 	
 	
@@ -69,7 +64,7 @@ public class Go : MonoBehaviour
 				// tween is complete if we get here. if destroyed or set to auto remove kill it
 				if( t.state == TweenState.Destroyed || t.autoRemoveOnComplete )
 				{
-					_tweens.RemoveAt( i );
+					removeTween( t );
 					t.destroy();
 				}
 			}
@@ -274,7 +269,11 @@ public class Go : MonoBehaviour
 		
 		_tweens.Add( tween );
 		
-		// if the Tween isn't paused and it is a from tween jump directly to the start position
+		// enable ourself if we are not enabled
+		if( !instance.enabled ) // purposely using the static instace property just once for initialization
+			_instance.enabled = true;
+		
+		// if the Tween isn't paused and it is a "from" tween jump directly to the start position
 		if( tween is Tween && ((Tween)tween).isFrom && tween.state != TweenState.Paused )
 			tween.update( 0 );
 		
@@ -292,6 +291,13 @@ public class Go : MonoBehaviour
 		if( _tweens.Contains( tween ) )
 		{
 			_tweens.Remove( tween );
+			
+			if( _tweens.Count == 0 )
+			{
+				// disable ourself if we have no more tweens
+				instance.enabled = false;
+			}
+			
 			return true;
 		}
 		
@@ -324,9 +330,9 @@ public class Go : MonoBehaviour
 	/// returns a list of all Tweens with the given target. TweenChains and TweenFlows can optionally
 	/// be traversed and matching Tweens returned as well.
 	/// </summary>
-	public static List<AbstractTween> tweensWithTarget( object target, bool traverseCollections = false )
+	public static List<Tween> tweensWithTarget( object target, bool traverseCollections = false )
 	{
-		List<AbstractTween> list = new List<AbstractTween>();
+		List<Tween> list = new List<Tween>();
 		
 		foreach( var item in _tweens )
 		{
@@ -349,6 +355,16 @@ public class Go : MonoBehaviour
 		}
 		
 		return list;
+	}
+	
+	
+	/// <summary>
+	/// kills all tweens with the given target by calling the destroy method on each one
+	/// </summary>
+	public static void killAllTweensWithTarget( object target )
+	{
+		foreach( var tween in tweensWithTarget( target, true ) )
+			tween.destroy();
 	}
 	
 	#endregion

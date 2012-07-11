@@ -9,27 +9,24 @@ using System.Collections;
 /// </summary>
 public class PositionPathTweenProperty : AbstractTweenProperty
 {
-	public enum LookAtType
-	{
-		None,
-		NextPathNode
-	}
-	
 	protected bool _useLocalPosition;
 	public bool useLocalPosition { get { return _useLocalPosition; } }
 	
 	protected Transform _target;
 	protected Vector3 _startValue;
 	
-	private GoVector3Path _path;
+	private GoSpline _path;
 	private LookAtType _lookAtType = LookAtType.None;
+	private Transform _lookTarget;
+	private GoSmoothedQuaternion _smoothedRotation;
 	
 
-	public PositionPathTweenProperty( GoVector3Path path, bool isRelative = false, bool useLocalPosition = false, LookAtType lookAtType = LookAtType.None ) : base( isRelative )
+	public PositionPathTweenProperty( GoSpline path, bool isRelative = false, bool useLocalPosition = false, LookAtType lookAtType = LookAtType.None, Transform lookTarget = null ) : base( isRelative )
 	{
 		_path = path;
 		_useLocalPosition = useLocalPosition;
 		_lookAtType = lookAtType;
+		_lookTarget = lookTarget;
 	}
 	
 	
@@ -82,29 +79,53 @@ public class PositionPathTweenProperty : AbstractTweenProperty
 			else
 				_startValue = _target.position;
 		}
+		
+		// validate the lookTarget if we are set to look at it
+		if( _lookAtType == LookAtType.TargetTransform )
+		{
+			if( _lookTarget == null )
+				_lookAtType = LookAtType.None;
+		}
+		
+		// prep our smoothed rotation
+		_smoothedRotation = _target.rotation;
 	}
 	
 
 	public override void tick( float totalElapsedTime )
 	{
 		var easedTime = _easeFunction( totalElapsedTime, 0, 1, _ownerTween.duration );
-		var vec = _path.getPointOnRoute( easedTime );
+		var vec = _path.getPointOnPath( easedTime );
 		
 		// if we are relative, add the vec to our startValue
 		if( _isRelative )
 			vec += _startValue;
 		
+		
+		// handle look types
+		switch( _lookAtType )
+		{
+			case LookAtType.NextPathNode:
+			{
+				_smoothedRotation.smoothValue = vec.Equals( _target.position ) ? Quaternion.identity : Quaternion.LookRotation( vec - _target.position );
+				_target.rotation = _smoothedRotation.smoothValue;
+				//var lookAtNode = ( _ownerTween.isReversed || _ownerTween.isLoopoingBackOnPingPong ) ? _path.getPreviousNode() : _path.getNextNode();
+				//_target.LookAt( lookAtNode, Vector3.up );
+				break;
+			}
+			case LookAtType.TargetTransform:
+			{
+				_target.LookAt( _lookTarget, Vector3.up );
+				break;
+			}
+		}
+		
+		
+		// assign the position
 		if( _useLocalPosition )
 			_target.localPosition = vec;
 		else
 			_target.position = vec;
-		
-		// look at the node we are moving towards
-		if( _lookAtType == LookAtType.NextPathNode )
-		{
-			var lookAtNode = ( _ownerTween.isReversed || _ownerTween.isLoopoingBackOnPingPong ) ? _path.getPreviousNode() : _path.getNextNode();
-			_target.LookAt( lookAtNode, Vector3.up );
-		}
 	}
 
 }

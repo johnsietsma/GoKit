@@ -87,13 +87,29 @@ public class Tween : AbstractTween
 		else
 			totalDuration = iterations * duration;
 	}
-	
+
 	
 	/// <summary>
 	/// tick method. if it returns true it indicates the tween is complete
 	/// </summary>
 	public override bool update( float deltaTime )
 	{
+		// should we validate the target?
+		if( Go.validateTargetObjectsEachTick )
+		{
+			// This might seem to be overkill, but on the case of Transforms that
+			// have been destroyed, target == null will return false, whereas 
+			// target.Equals(null) will return true.  Otherwise we don't really
+			// get the benefits of the nanny.
+			if( target == null || target.Equals(null) )
+			{
+				// if the target doesn't pass validation
+				Debug.LogWarning( "target validation failed. destroying the tween to avoid errors" );
+				autoRemoveOnComplete = true;
+				return true;
+			}
+		}
+		
 		// handle delay and return if we are still delaying
 		if( !_delayComplete && _elapsedDelay < delay )
 		{
