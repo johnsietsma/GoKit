@@ -210,6 +210,16 @@ public static class GoTweenUtils
 		);
     }
 
+	public static Vector3 unclampedEulerAngleLerp( Vector3 v1, Vector3 diff, float value )
+	{
+        return new Vector3
+		(
+			v1.x = Mathf.LerpAngle( v1.x, diff.x, value ),
+            v1.y = Mathf.LerpAngle( v1.y, diff.y, value ),
+            v1.z = Mathf.LerpAngle( v1.z, diff.z, value )
+		);
+	}
+
 	#endregion
 	
 }
