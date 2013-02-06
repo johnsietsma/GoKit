@@ -8,85 +8,85 @@ public static class GoTweenUtils
 	/// <summary>
 	/// fetches the actual function for the given ease type
 	/// </summary>
-	public static Func<float,float,float,float,float> easeFunctionForType( EaseType easeType )
+	public static Func<float,float,float,float,float> easeFunctionForType( GoEaseType easeType )
 	{
 		switch( easeType )
 		{
-			case EaseType.Linear:
-				return Linear.EaseNone;
+			case GoEaseType.Linear:
+				return GoEaseLinear.EaseNone;
 			
-			case EaseType.BackIn:
-				return Back.EaseIn;
-			case EaseType.BackOut:
-				return Back.EaseOut;
-			case EaseType.BackInOut:
-				return Back.EaseInOut;
+			case GoEaseType.BackIn:
+				return GoEaseBack.EaseIn;
+			case GoEaseType.BackOut:
+				return GoEaseBack.EaseOut;
+			case GoEaseType.BackInOut:
+				return GoEaseBack.EaseInOut;
 			
-			case EaseType.BounceIn:
-				return Bounce.EaseIn;
-			case EaseType.BounceOut:
-				return Bounce.EaseOut;
-			case EaseType.BounceInOut:
-				return Bounce.EaseInOut;
+			case GoEaseType.BounceIn:
+				return GoEaseBounce.EaseIn;
+			case GoEaseType.BounceOut:
+				return GoEaseBounce.EaseOut;
+			case GoEaseType.BounceInOut:
+				return GoEaseBounce.EaseInOut;
 			
-			case EaseType.CircIn:
-				return Circular.EaseIn;
-			case EaseType.CircOut:
-				return Circular.EaseOut;
-			case EaseType.CircInOut:
-				return Circular.EaseInOut;
+			case GoEaseType.CircIn:
+				return GoEaseCircular.EaseIn;
+			case GoEaseType.CircOut:
+				return GoEaseCircular.EaseOut;
+			case GoEaseType.CircInOut:
+				return GoEaseCircular.EaseInOut;
 			
-			case EaseType.CubicIn:
-				return Cubic.EaseIn;
-			case EaseType.CubicOut:
-				return Cubic.EaseOut;
-			case EaseType.CubicInOut:
-				return Cubic.EaseInOut;
+			case GoEaseType.CubicIn:
+				return GoEaseCubic.EaseIn;
+			case GoEaseType.CubicOut:
+				return GoEaseCubic.EaseOut;
+			case GoEaseType.CubicInOut:
+				return GoEaseCubic.EaseInOut;
 			
-			case EaseType.ElasticIn:
-				return Elastic.EaseIn;
-			case EaseType.ElasticOut:
-				return Elastic.EaseOut;
-			case EaseType.ElasticInOut:
-				return Elastic.EaseInOut;
+			case GoEaseType.ElasticIn:
+				return GoEaseElastic.EaseIn;
+			case GoEaseType.ElasticOut:
+				return GoEaseElastic.EaseOut;
+			case GoEaseType.ElasticInOut:
+				return GoEaseElastic.EaseInOut;
 			
-			case EaseType.ExpoIn:
-				return Exponential.EaseIn;
-			case EaseType.ExpoOut:
-				return Exponential.EaseOut;
-			case EaseType.ExpoInOut:
-				return Exponential.EaseInOut;
+			case GoEaseType.ExpoIn:
+				return GoEaseExponential.EaseIn;
+			case GoEaseType.ExpoOut:
+				return GoEaseExponential.EaseOut;
+			case GoEaseType.ExpoInOut:
+				return GoEaseExponential.EaseInOut;
 			
-			case EaseType.QuadIn:
-				return Quadratic.EaseIn;
-			case EaseType.QuadOut:
-				return Quadratic.EaseOut;
-			case EaseType.QuadInOut:
-				return Quadratic.EaseInOut;
+			case GoEaseType.QuadIn:
+				return GoEaseQuadratic.EaseIn;
+			case GoEaseType.QuadOut:
+				return GoEaseQuadratic.EaseOut;
+			case GoEaseType.QuadInOut:
+				return GoEaseQuadratic.EaseInOut;
 			
-			case EaseType.QuartIn:
-				return Quartic.EaseIn;
-			case EaseType.QuartOut:
-				return Quartic.EaseOut;
-			case EaseType.QuartInOut:
-				return Quartic.EaseInOut;
+			case GoEaseType.QuartIn:
+				return GoEaseQuartic.EaseIn;
+			case GoEaseType.QuartOut:
+				return GoEaseQuartic.EaseOut;
+			case GoEaseType.QuartInOut:
+				return GoEaseQuartic.EaseInOut;
 			
-			case EaseType.QuintIn:
-				return Quintic.EaseIn;
-			case EaseType.QuintOut:
-				return Quintic.EaseOut;
-			case EaseType.QuintInOut:
-				return Quintic.EaseInOut;
+			case GoEaseType.QuintIn:
+				return GoEaseQuintic.EaseIn;
+			case GoEaseType.QuintOut:
+				return GoEaseQuintic.EaseOut;
+			case GoEaseType.QuintInOut:
+				return GoEaseQuintic.EaseInOut;
 			
-			case EaseType.SineIn:
-				return Sinusoidal.EaseIn;
-			case EaseType.SineOut:
-				return Sinusoidal.EaseOut;
-			case EaseType.SineInOut:
-				return Sinusoidal.EaseInOut;
+			case GoEaseType.SineIn:
+				return GoEaseSinusoidal.EaseIn;
+			case GoEaseType.SineOut:
+				return GoEaseSinusoidal.EaseOut;
+			case GoEaseType.SineInOut:
+				return GoEaseSinusoidal.EaseInOut;
 		}
 		
-		return Linear.EaseNone;
+		return GoEaseLinear.EaseNone;
 	}
 	
 	

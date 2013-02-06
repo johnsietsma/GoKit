@@ -10,7 +10,7 @@ public class GoSpline
 {
 	public int currentSegment { get; private set; }
 	public bool isClosed { get; private set; }
-	public SplineType splineType { get; private set; }
+	public GoSplineType splineType { get; private set; }
 	
 	// used by the visual path editor
 	public List<Vector3> nodes { get { return _solver.nodes; } }
@@ -25,22 +25,22 @@ public class GoSpline
 		// determine spline type and solver based on number of nodes
 		if( useStraightLines || nodes.Count == 2 )
 		{
-			splineType = SplineType.StraightLine;
+			splineType = GoSplineType.StraightLine;
 			_solver = new GoSplineStraightLineSolver( nodes );
 		}
 		else if( nodes.Count == 3 )
 		{
-			splineType = SplineType.QuadraticBezier;
+			splineType = GoSplineType.QuadraticBezier;
 			_solver = new GoSplineQuadraticBezierSolver( nodes );
 		}
 		else if( nodes.Count == 4 )
 		{
-			splineType = SplineType.CubicBezier;
+			splineType = GoSplineType.CubicBezier;
 			_solver = new GoSplineCubicBezierSolver( nodes );
 		}
 		else
 		{
-			splineType = SplineType.CatmullRom;
+			splineType = GoSplineType.CatmullRom;
 			_solver = new GoSplineCatmullRomSolver( nodes );
 		}
 	}
@@ -59,26 +59,42 @@ public class GoSpline
 	/// </summary>
 	private static List<Vector3> nodeListFromAsset( string pathAssetName )
 	{
-#if UNITY_WEBPLAYER
+		if( Application.platform == RuntimePlatform.OSXWebPlayer || Application.platform == RuntimePlatform.WindowsWebPlayer )
+		{
 			Debug.LogError( "The Web Player does not support loading files from disk." );
 			return null;
-#else
+		}
+
 		
 		var path = string.Empty;
 		if( !pathAssetName.EndsWith( ".asset" ) )
 			pathAssetName += ".asset";
 		
-		if( Application.isEditor )
+		
+		if( Application.platform == RuntimePlatform.Android )
+		{
+			path = Path.Combine( "jar:file://" + Application.dataPath + "!/assets/", pathAssetName );
+		
+	        WWW loadAsset = new WWW( path );
+	        while( loadAsset.isDone ) { } // maybe make a safety check here
+			
+			return bytesToVector3List( loadAsset.bytes );
+		}
+		else if( Application.platform == RuntimePlatform.IPhonePlayer )
+		{
+			// at runtime on iOS, we load from the dataPath
+			path = Path.Combine( Path.Combine( Application.dataPath, "Raw" ), pathAssetName );
+		}
+		else
 		{
 			// in the editor we default to looking in the StreamingAssets folder
 			path = Path.Combine( Path.Combine( Application.dataPath, "StreamingAssets" ), pathAssetName );
 		}
-		else
-		{
-			// at runtime, we load from the dataPath
-			path = Path.Combine( Path.Combine( Application.dataPath, "Raw" ), pathAssetName );
-		}
 		
+#if UNITY_WEBPLAYER
+		// it isnt possible to get here but the compiler needs it to be here anyway
+		return null;
+#else
 		var bytes = File.ReadAllBytes( path );
 		return bytesToVector3List( bytes );
 #endif
