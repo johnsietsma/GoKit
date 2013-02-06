@@ -12,22 +12,22 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>False</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <ConsolePause>False</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>False</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <ConsolePause>False</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,223 +43,418 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="..\Assets\Plugins\GoKit\Go.cs">
-      <Link>Go.cs</Link>
+      <Link>GoKit\Go.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\GoDummyPath.cs">
-      <Link>GoDummyPath.cs</Link>
+      <Link>GoKit\GoDummyPath.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\Tween.cs">
-      <Link>Tween.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\GoTween.cs">
+      <Link>GoKit\GoTween.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\TweenChain.cs">
-      <Link>TweenChain.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\GoTweenChain.cs">
+      <Link>GoKit\GoTweenChain.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\TweenConfig.cs">
-      <Link>TweenConfig.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\GoTweenConfig.cs">
+      <Link>GoKit\GoTweenConfig.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\TweenFlow.cs">
-      <Link>TweenFlow.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\GoTweenFlow.cs">
+      <Link>GoKit\GoTweenFlow.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\base\AbstractTween.cs">
-      <Link>base\AbstractTween.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\base\AbstractGoTween.cs">
+      <Link>GoKit\base\AbstractGoTween.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\base\AbstractTweenCollection.cs">
-      <Link>base\AbstractTweenCollection.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\base\AbstractGoTweenCollection.cs">
+      <Link>GoKit\base\AbstractGoTweenCollection.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\easing\Back.cs">
-      <Link>easing\Back.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\easing\GoEaseBack.cs">
+      <Link>GoKit\easing\GoEaseBack.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\easing\Bounce.cs">
-      <Link>easing\Bounce.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\easing\GoEaseBounce.cs">
+      <Link>GoKit\easing\GoEaseBounce.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\easing\Circular.cs">
-      <Link>easing\Circular.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\easing\GoEaseCircular.cs">
+      <Link>GoKit\easing\GoEaseCircular.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\easing\Cubic.cs">
-      <Link>easing\Cubic.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\easing\GoEaseCubic.cs">
+      <Link>GoKit\easing\GoEaseCubic.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\easing\Elastic.cs">
-      <Link>easing\Elastic.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\easing\GoEaseElastic.cs">
+      <Link>GoKit\easing\GoEaseElastic.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\easing\Exponential.cs">
-      <Link>easing\Exponential.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\easing\GoEaseExponential.cs">
+      <Link>GoKit\easing\GoEaseExponential.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\easing\Linear.cs">
-      <Link>easing\Linear.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\easing\GoEaseLinear.cs">
+      <Link>GoKit\easing\GoEaseLinear.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\easing\Quad.cs">
-      <Link>easing\Quad.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\easing\GoEaseQuadratic.cs">
+      <Link>GoKit\easing\GoEaseQuadratic.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\easing\Quartic.cs">
-      <Link>easing\Quartic.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\easing\GoEaseQuartic.cs">
+      <Link>GoKit\easing\GoEaseQuartic.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\easing\Quintic.cs">
-      <Link>easing\Quintic.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\easing\GoEaseQuintic.cs">
+      <Link>GoKit\easing\GoEaseQuintic.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\easing\Sinusoidal.cs">
-      <Link>easing\Sinusoidal.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\easing\GoEaseSinusoidal.cs">
+      <Link>GoKit\easing\GoEaseSinusoidal.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\enums\DuplicatePropertyRuleType.cs">
-      <Link>enums\DuplicatePropertyRuleType.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\enums\GoDuplicatePropertyRuleType.cs">
+      <Link>GoKit\enums\GoDuplicatePropertyRuleType.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\enums\EaseType.cs">
-      <Link>enums\EaseType.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\enums\GoEaseType.cs">
+      <Link>GoKit\enums\GoEaseType.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\enums\GoLogLevel.cs">
-      <Link>enums\GoLogLevel.cs</Link>
+      <Link>GoKit\enums\GoLogLevel.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\enums\LoopType.cs">
-      <Link>enums\LoopType.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\enums\GoLookAtType.cs">
+      <Link>GoKit\enums\GoLookAtType.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\enums\MaterialColorType.cs">
-      <Link>enums\MaterialColorType.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\enums\GoLoopType.cs">
+      <Link>GoKit\enums\GoLoopType.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\enums\ShakeType.cs">
-      <Link>enums\ShakeType.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\enums\GoMaterialColorType.cs">
+      <Link>GoKit\enums\GoMaterialColorType.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\enums\TweenState.cs">
-      <Link>enums\TweenState.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\enums\GoShakeType.cs">
+      <Link>GoKit\enums\GoShakeType.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\enums\UpdateType.cs">
-      <Link>enums\UpdateType.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\enums\GoSplineType.cs">
+      <Link>GoKit\enums\GoSplineType.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\enums\GoTweenState.cs">
+      <Link>GoKit\enums\GoTweenState.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\enums\GoUpdateType.cs">
+      <Link>GoKit\enums\GoUpdateType.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\extensions\GoKitTweenExtensions.cs">
-      <Link>extensions\GoKitTweenExtensions.cs</Link>
+      <Link>GoKit\extensions\GoKitTweenExtensions.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\GoTweenUtils.cs">
-      <Link>properties\GoTweenUtils.cs</Link>
+      <Link>GoKit\properties\GoTweenUtils.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\abstracts\AbstractColorTweenProperty.cs">
-      <Link>properties\abstracts\AbstractColorTweenProperty.cs</Link>
+      <Link>GoKit\properties\abstracts\AbstractColorTweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\abstracts\AbstractTweenProperty.cs">
-      <Link>properties\abstracts\AbstractTweenProperty.cs</Link>
+      <Link>GoKit\properties\abstracts\AbstractTweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\abstracts\AbstractVector3TweenProperty.cs">
-      <Link>properties\abstracts\AbstractVector3TweenProperty.cs</Link>
+      <Link>GoKit\properties\abstracts\AbstractVector3TweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\genericTypes\ColorTweenProperty.cs">
-      <Link>properties\genericTypes\ColorTweenProperty.cs</Link>
+      <Link>GoKit\properties\genericTypes\ColorTweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\genericTypes\FloatTweenProperty.cs">
-      <Link>properties\genericTypes\FloatTweenProperty.cs</Link>
+      <Link>GoKit\properties\genericTypes\FloatTweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\genericTypes\IGenericProperty.cs">
-      <Link>properties\genericTypes\IGenericProperty.cs</Link>
+      <Link>GoKit\properties\genericTypes\IGenericProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\genericTypes\IntTweenProperty.cs">
-      <Link>properties\genericTypes\IntTweenProperty.cs</Link>
+      <Link>GoKit\properties\genericTypes\IntTweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector2TweenProperty.cs">
-      <Link>properties\genericTypes\Vector2TweenProperty.cs</Link>
+      <Link>GoKit\properties\genericTypes\Vector2TweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector3PathTweenProperty.cs">
-      <Link>properties\genericTypes\Vector3PathTweenProperty.cs</Link>
+      <Link>GoKit\properties\genericTypes\Vector3PathTweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector3TweenProperty.cs">
-      <Link>properties\genericTypes\Vector3TweenProperty.cs</Link>
+      <Link>GoKit\properties\genericTypes\Vector3TweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector3XTweenProperty.cs">
-      <Link>properties\genericTypes\Vector3XTweenProperty.cs</Link>
+      <Link>GoKit\properties\genericTypes\Vector3XTweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector3YTweenProperty.cs">
-      <Link>properties\genericTypes\Vector3YTweenProperty.cs</Link>
+      <Link>GoKit\properties\genericTypes\Vector3YTweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector3ZTweenProperty.cs">
-      <Link>properties\genericTypes\Vector3ZTweenProperty.cs</Link>
+      <Link>GoKit\properties\genericTypes\Vector3ZTweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector4TweenProperty.cs">
-      <Link>properties\genericTypes\Vector4TweenProperty.cs</Link>
-    </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\EulerAnglesTweenProperty.cs">
-      <Link>properties\specificTypes\EulerAnglesTweenProperty.cs</Link>
-    </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\MaterialColorTweenProperty.cs">
-      <Link>properties\specificTypes\MaterialColorTweenProperty.cs</Link>
-    </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\PositionPathTweenProperty.cs">
-      <Link>properties\specificTypes\PositionPathTweenProperty.cs</Link>
-    </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\PositionTweenProperty.cs">
-      <Link>properties\specificTypes\PositionTweenProperty.cs</Link>
-    </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\RotationTweenProperty.cs">
-      <Link>properties\specificTypes\RotationTweenProperty.cs</Link>
-    </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\ScalePathTweenProperty.cs">
-      <Link>properties\specificTypes\ScalePathTweenProperty.cs</Link>
-    </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\ScaleTweenProperty.cs">
-      <Link>properties\specificTypes\ScaleTweenProperty.cs</Link>
-    </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\ShakeTweenProperty.cs">
-      <Link>properties\specificTypes\ShakeTweenProperty.cs</Link>
+      <Link>GoKit\properties\genericTypes\Vector4TweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\smoothing\GoSmoothedQuaternion.cs">
-      <Link>properties\properties\smoothing\GoSmoothedQuaternion.cs</Link>
+      <Link>GoKit\properties\smoothing\GoSmoothedQuaternion.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\smoothing\GoSmoothedVector3.cs">
-      <Link>properties\properties\smoothing\GoSmoothedVector3.cs</Link>
+      <Link>GoKit\properties\smoothing\GoSmoothedVector3.cs</Link>
     </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\properties\smoothing\SmoothingType.cs">
-      <Link>properties\properties\smoothing\SmoothingType.cs</Link>
+    <Compile Include="..\Assets\Plugins\GoKit\properties\smoothing\GoSmoothingType.cs">
+      <Link>GoKit\properties\smoothing\GoSmoothingType.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\EulerAnglesTweenProperty.cs">
+      <Link>GoKit\properties\specificTypes\EulerAnglesTweenProperty.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\MaterialColorTweenProperty.cs">
+      <Link>GoKit\properties\specificTypes\MaterialColorTweenProperty.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\PositionPathTweenProperty.cs">
+      <Link>GoKit\properties\specificTypes\PositionPathTweenProperty.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\PositionTweenProperty.cs">
+      <Link>GoKit\properties\specificTypes\PositionTweenProperty.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\RotationTweenProperty.cs">
+      <Link>GoKit\properties\specificTypes\RotationTweenProperty.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\ScalePathTweenProperty.cs">
+      <Link>GoKit\properties\specificTypes\ScalePathTweenProperty.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\ScaleTweenProperty.cs">
+      <Link>GoKit\properties\specificTypes\ScaleTweenProperty.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\ShakeTweenProperty.cs">
+      <Link>GoKit\properties\specificTypes\ShakeTweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\splines\AbstractGoSplineSolver.cs">
-      <Link>properties\properties\splines\AbstractGoSplineSolver.cs</Link>
+      <Link>GoKit\properties\splines\AbstractGoSplineSolver.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\splines\GoSpline.cs">
-      <Link>properties\properties\splines\GoSpline.cs</Link>
+      <Link>GoKit\properties\splines\GoSpline.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\splines\GoSplineCatmullRomSolver.cs">
-      <Link>properties\properties\splines\GoSplineCatmullRomSolver.cs</Link>
+      <Link>GoKit\properties\splines\GoSplineCatmullRomSolver.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\splines\GoSplineCubicBezierSolver.cs">
-      <Link>properties\properties\splines\GoSplineCubicBezierSolver.cs</Link>
+      <Link>GoKit\properties\splines\GoSplineCubicBezierSolver.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\splines\GoSplineQuadraticBezierSolver.cs">
-      <Link>properties\properties\splines\GoSplineQuadraticBezierSolver.cs</Link>
+      <Link>GoKit\properties\splines\GoSplineQuadraticBezierSolver.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\splines\GoSplineStraightLineSolver.cs">
-      <Link>properties\properties\splines\GoSplineStraightLineSolver.cs</Link>
-    </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\enums\LookAtType.cs">
-      <Link>enums\enums\LookAtType.cs</Link>
-    </Compile>
-    <Compile Include="..\Assets\Plugins\GoKit\enums\SplineType.cs">
-      <Link>enums\enums\SplineType.cs</Link>
+      <Link>GoKit\properties\splines\GoSplineStraightLineSolver.cs</Link>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="..\Assets\Plugins\GoKit\enums\DuplicatePropertyRuleType.cs.meta">
-      <Link>enums\enums\DuplicatePropertyRuleType.cs.meta</Link>
+    <Folder Include="GoKit\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Assets\Plugins\GoKit\Go.cs.meta">
+      <Link>GoKit\Go.cs.meta</Link>
     </None>
-    <None Include="..\Assets\Plugins\GoKit\enums\EaseType.cs.meta">
-      <Link>enums\enums\EaseType.cs.meta</Link>
+    <None Include="..\Assets\Plugins\GoKit\GoDummyPath.cs.meta">
+      <Link>GoKit\GoDummyPath.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\GoTween.cs.meta">
+      <Link>GoKit\GoTween.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\GoTweenChain.cs.meta">
+      <Link>GoKit\GoTweenChain.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\GoTweenConfig.cs.meta">
+      <Link>GoKit\GoTweenConfig.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\GoTweenFlow.cs.meta">
+      <Link>GoKit\GoTweenFlow.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\base.meta">
+      <Link>GoKit\base.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing.meta">
+      <Link>GoKit\easing.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\enums.meta">
+      <Link>GoKit\enums.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\extensions.meta">
+      <Link>GoKit\extensions.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties.meta">
+      <Link>GoKit\properties.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\base\AbstractGoTween.cs.meta">
+      <Link>GoKit\base\AbstractGoTween.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\base\AbstractGoTweenCollection.cs.meta">
+      <Link>GoKit\base\AbstractGoTweenCollection.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\GoEaseBack.cs.meta">
+      <Link>GoKit\easing\GoEaseBack.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\GoEaseBounce.cs.meta">
+      <Link>GoKit\easing\GoEaseBounce.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\GoEaseCircular.cs.meta">
+      <Link>GoKit\easing\GoEaseCircular.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\GoEaseCubic.cs.meta">
+      <Link>GoKit\easing\GoEaseCubic.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\GoEaseElastic.cs.meta">
+      <Link>GoKit\easing\GoEaseElastic.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\GoEaseExponential.cs.meta">
+      <Link>GoKit\easing\GoEaseExponential.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\GoEaseLinear.cs.meta">
+      <Link>GoKit\easing\GoEaseLinear.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\GoEaseQuadratic.cs.meta">
+      <Link>GoKit\easing\GoEaseQuadratic.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\GoEaseQuartic.cs.meta">
+      <Link>GoKit\easing\GoEaseQuartic.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\GoEaseQuintic.cs.meta">
+      <Link>GoKit\easing\GoEaseQuintic.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\GoEaseSinusoidal.cs.meta">
+      <Link>GoKit\easing\GoEaseSinusoidal.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\easeEquationsLicense.txt">
+      <Link>GoKit\easing\easeEquationsLicense.txt</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\easing\easeEquationsLicense.txt.meta">
+      <Link>GoKit\easing\easeEquationsLicense.txt.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\enums\GoDuplicatePropertyRuleType.cs.meta">
+      <Link>GoKit\enums\GoDuplicatePropertyRuleType.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\enums\GoEaseType.cs.meta">
+      <Link>GoKit\enums\GoEaseType.cs.meta</Link>
     </None>
     <None Include="..\Assets\Plugins\GoKit\enums\GoLogLevel.cs.meta">
-      <Link>enums\enums\GoLogLevel.cs.meta</Link>
+      <Link>GoKit\enums\GoLogLevel.cs.meta</Link>
     </None>
-    <None Include="..\Assets\Plugins\GoKit\enums\LookAtType.cs.meta">
-      <Link>enums\enums\LookAtType.cs.meta</Link>
+    <None Include="..\Assets\Plugins\GoKit\enums\GoLookAtType.cs.meta">
+      <Link>GoKit\enums\GoLookAtType.cs.meta</Link>
     </None>
-    <None Include="..\Assets\Plugins\GoKit\enums\LoopType.cs.meta">
-      <Link>enums\enums\LoopType.cs.meta</Link>
+    <None Include="..\Assets\Plugins\GoKit\enums\GoLoopType.cs.meta">
+      <Link>GoKit\enums\GoLoopType.cs.meta</Link>
     </None>
-    <None Include="..\Assets\Plugins\GoKit\enums\MaterialColorType.cs.meta">
-      <Link>enums\enums\MaterialColorType.cs.meta</Link>
+    <None Include="..\Assets\Plugins\GoKit\enums\GoMaterialColorType.cs.meta">
+      <Link>GoKit\enums\GoMaterialColorType.cs.meta</Link>
     </None>
-    <None Include="..\Assets\Plugins\GoKit\enums\ShakeType.cs.meta">
-      <Link>enums\enums\ShakeType.cs.meta</Link>
+    <None Include="..\Assets\Plugins\GoKit\enums\GoShakeType.cs.meta">
+      <Link>GoKit\enums\GoShakeType.cs.meta</Link>
     </None>
-    <None Include="..\Assets\Plugins\GoKit\enums\SplineType.cs.meta">
-      <Link>enums\enums\SplineType.cs.meta</Link>
+    <None Include="..\Assets\Plugins\GoKit\enums\GoSplineType.cs.meta">
+      <Link>GoKit\enums\GoSplineType.cs.meta</Link>
     </None>
-    <None Include="..\Assets\Plugins\GoKit\enums\TweenState.cs.meta">
-      <Link>enums\enums\TweenState.cs.meta</Link>
+    <None Include="..\Assets\Plugins\GoKit\enums\GoTweenState.cs.meta">
+      <Link>GoKit\enums\GoTweenState.cs.meta</Link>
     </None>
-    <None Include="..\Assets\Plugins\GoKit\enums\UpdateType.cs.meta">
-      <Link>enums\enums\UpdateType.cs.meta</Link>
+    <None Include="..\Assets\Plugins\GoKit\enums\GoUpdateType.cs.meta">
+      <Link>GoKit\enums\GoUpdateType.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\extensions\GoKitTweenExtensions.cs.meta">
+      <Link>GoKit\extensions\GoKitTweenExtensions.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\GoTweenUtils.cs.meta">
+      <Link>GoKit\properties\GoTweenUtils.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\abstracts.meta">
+      <Link>GoKit\properties\abstracts.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes.meta">
+      <Link>GoKit\properties\genericTypes.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\smoothing.meta">
+      <Link>GoKit\properties\smoothing.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\specificTypes.meta">
+      <Link>GoKit\properties\specificTypes.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\splines.meta">
+      <Link>GoKit\properties\splines.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\abstracts\AbstractColorTweenProperty.cs.meta">
+      <Link>GoKit\properties\abstracts\AbstractColorTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\abstracts\AbstractTweenProperty.cs.meta">
+      <Link>GoKit\properties\abstracts\AbstractTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\abstracts\AbstractVector3TweenProperty.cs.meta">
+      <Link>GoKit\properties\abstracts\AbstractVector3TweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes\ColorTweenProperty.cs.meta">
+      <Link>GoKit\properties\genericTypes\ColorTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes\FloatTweenProperty.cs.meta">
+      <Link>GoKit\properties\genericTypes\FloatTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes\IGenericProperty.cs.meta">
+      <Link>GoKit\properties\genericTypes\IGenericProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes\IntTweenProperty.cs.meta">
+      <Link>GoKit\properties\genericTypes\IntTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector2TweenProperty.cs.meta">
+      <Link>GoKit\properties\genericTypes\Vector2TweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector3PathTweenProperty.cs.meta">
+      <Link>GoKit\properties\genericTypes\Vector3PathTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector3TweenProperty.cs.meta">
+      <Link>GoKit\properties\genericTypes\Vector3TweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector3XTweenProperty.cs.meta">
+      <Link>GoKit\properties\genericTypes\Vector3XTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector3YTweenProperty.cs.meta">
+      <Link>GoKit\properties\genericTypes\Vector3YTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector3ZTweenProperty.cs.meta">
+      <Link>GoKit\properties\genericTypes\Vector3ZTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\genericTypes\Vector4TweenProperty.cs.meta">
+      <Link>GoKit\properties\genericTypes\Vector4TweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\smoothing\GoSmoothedQuaternion.cs.meta">
+      <Link>GoKit\properties\smoothing\GoSmoothedQuaternion.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\smoothing\GoSmoothedVector3.cs.meta">
+      <Link>GoKit\properties\smoothing\GoSmoothedVector3.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\smoothing\GoSmoothingType.cs.meta">
+      <Link>GoKit\properties\smoothing\GoSmoothingType.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\specificTypes\EulerAnglesTweenProperty.cs.meta">
+      <Link>GoKit\properties\specificTypes\EulerAnglesTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\specificTypes\MaterialColorTweenProperty.cs.meta">
+      <Link>GoKit\properties\specificTypes\MaterialColorTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\specificTypes\PositionPathTweenProperty.cs.meta">
+      <Link>GoKit\properties\specificTypes\PositionPathTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\specificTypes\PositionTweenProperty.cs.meta">
+      <Link>GoKit\properties\specificTypes\PositionTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\specificTypes\RotationTweenProperty.cs.meta">
+      <Link>GoKit\properties\specificTypes\RotationTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\specificTypes\ScalePathTweenProperty.cs.meta">
+      <Link>GoKit\properties\specificTypes\ScalePathTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\specificTypes\ScaleTweenProperty.cs.meta">
+      <Link>GoKit\properties\specificTypes\ScaleTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\specificTypes\ShakeTweenProperty.cs.meta">
+      <Link>GoKit\properties\specificTypes\ShakeTweenProperty.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\splines\AbstractGoSplineSolver.cs.meta">
+      <Link>GoKit\properties\splines\AbstractGoSplineSolver.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\splines\GoSpline.cs.meta">
+      <Link>GoKit\properties\splines\GoSpline.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\splines\GoSplineCatmullRomSolver.cs.meta">
+      <Link>GoKit\properties\splines\GoSplineCatmullRomSolver.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\splines\GoSplineCubicBezierSolver.cs.meta">
+      <Link>GoKit\properties\splines\GoSplineCubicBezierSolver.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\splines\GoSplineQuadraticBezierSolver.cs.meta">
+      <Link>GoKit\properties\splines\GoSplineQuadraticBezierSolver.cs.meta</Link>
+    </None>
+    <None Include="..\Assets\Plugins\GoKit\properties\splines\GoSplineStraightLineSolver.cs.meta">
+      <Link>GoKit\properties\splines\GoSplineStraightLineSolver.cs.meta</Link>
     </None>
   </ItemGroup>
 </Project>
