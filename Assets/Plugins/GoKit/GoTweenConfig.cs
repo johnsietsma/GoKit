@@ -152,6 +152,14 @@ public class GoTweenConfig
 		
 		return this;
 	}
+
+    public GoTweenConfig materialProperty( string propertyName, float endValue )
+    {
+        var prop = new MaterialPropertyTweenProperty( propertyName, endValue );
+        _tweenProperties.Add( prop );
+        
+        return this;
+    }
 	
 	
 	/// <summary>

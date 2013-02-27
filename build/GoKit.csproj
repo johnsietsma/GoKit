@@ -228,6 +228,8 @@
     <Compile Include="..\Assets\Plugins\GoKit\properties\splines\GoSplineStraightLineSolver.cs">
       <Link>GoKit\properties\splines\GoSplineStraightLineSolver.cs</Link>
     </Compile>
+    <Compile Include="GoKit\properties\specificTypes\MaterialPropertyTweenProperty.cs" />
+    <Compile Include="GoKit\properties\abstracts\AbstractPropertyTweenProperty.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
