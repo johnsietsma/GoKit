@@ -7,7 +7,7 @@ public class ShakeTweenProperty : AbstractTweenProperty
 	private Transform _target;
 	private Vector3 _shakeMagnitude;
 	
-	private Vector3 _originalEndValue;
+	//private Vector3 _originalEndValue;
 	private Vector3 _startPosition;
 	private Vector3 _startScale;
 	private Vector3 _startEulers;
