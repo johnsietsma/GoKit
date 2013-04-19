@@ -9,6 +9,8 @@ Xcode/
 Temp/*
 Library
 
+# Build binary files
+**/bin/
 
 Assembly-CSharp-*
 *.suo
