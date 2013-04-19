@@ -57,6 +57,9 @@
     <Compile Include="..\Assets\Plugins\GoKit\GoTweenConfig.cs">
       <Link>GoKit\GoTweenConfig.cs</Link>
     </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\GoTweenCollectionConfig.cs">
+      <Link>GoKit\GoTweenCollectionConfig.cs</Link>
+    </Compile>    
     <Compile Include="..\Assets\Plugins\GoKit\GoTweenFlow.cs">
       <Link>GoKit\GoTweenFlow.cs</Link>
     </Compile>
@@ -138,6 +141,9 @@
     <Compile Include="..\Assets\Plugins\GoKit\properties\abstracts\AbstractColorTweenProperty.cs">
       <Link>GoKit\properties\abstracts\AbstractColorTweenProperty.cs</Link>
     </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\properties\abstracts\AbstractQuaternionTweenProperty.cs">
+      <Link>GoKit\properties\abstracts\AbstractQuaternionTweenProperty.cs</Link>
+    </Compile>    
     <Compile Include="..\Assets\Plugins\GoKit\properties\abstracts\AbstractTweenProperty.cs">
       <Link>GoKit\properties\abstracts\AbstractTweenProperty.cs</Link>
     </Compile>
@@ -197,6 +203,9 @@
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\PositionTweenProperty.cs">
       <Link>GoKit\properties\specificTypes\PositionTweenProperty.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\RotationQuaternionTweenProperty.cs">
+      <Link>GoKit\properties\specificTypes\RotationQuaternionTweenProperty.cs</Link>
     </Compile>
     <Compile Include="..\Assets\Plugins\GoKit\properties\specificTypes\RotationTweenProperty.cs">
       <Link>GoKit\properties\specificTypes\RotationTweenProperty.cs</Link>
