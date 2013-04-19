@@ -1,3 +1,8 @@
+GoKit fork so GoKit can be build into a binary.
+
+See the build/ directory for .sln and .csproj files.
+
+
 GoKit
 ====
 
