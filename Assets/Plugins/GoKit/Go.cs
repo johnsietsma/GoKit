@@ -21,7 +21,7 @@ public class Go : MonoBehaviour
 
 	// Used to stop instances being created while the application is quitting
 	private static bool _applicationIsQuitting = false;
-	
+
 	private static List<AbstractGoTween> _tweens = new List<AbstractGoTween>(); // contains Tweens, TweenChains and TweenFlows
 	private bool _timeScaleIndependentUpdateIsRunning;
 
@@ -31,12 +31,16 @@ public class Go : MonoBehaviour
 	{
 		get
 		{
-			// Don't allow new instances to be created when the application is quitting to avoid GOKit never being destroyed and multiple GoKit instances piling up.
+			// Don't allow new instances to be created when the application is quitting to avoid the GOKit object never being destroyed.
+			// These dangling instances can't be found with FindObjectOfType and so you'd get multiple instances in a scene.
 			if( !_instance && !_applicationIsQuitting )
 			{
 				// check if there is a GO instance already available in the scene graph
 				_instance = FindObjectOfType( typeof( Go ) ) as Go;
 				
+				// possible Unity bug with FindObjectOfType workaround
+				//_instance = FindObjectOfType( typeof( Go ) ) ?? GameObject.Find( "GoKit" ).GetComponent<Go>() as Go;
+
 				// nope, create a new one
 				if( !_instance )
 				{
@@ -282,7 +286,7 @@ public class Go : MonoBehaviour
 		_tweens.Add( tween );
 
 		// enable ourself if we are not enabled
-		if( !instance.enabled ) // purposely using the static instance property just once for initialization
+		if( !instance.enabled ) // purposely using the static instace property just once for initialization
 			_instance.enabled = true;
 		
 		// if the Tween isn't paused and it is a "from" tween jump directly to the start position
@@ -309,14 +313,14 @@ public class Go : MonoBehaviour
 			_tweens.Remove( tween );
 			
 #if UNITY_EDITOR
-    		if( _instance != null && _tweens != null )
-	       		_instance.gameObject.name = string.Format( "GoKit ({0} tweens)", _tweens.Count );
+		if( _instance != null && _tweens != null )
+			_instance.gameObject.name = string.Format( "GoKit ({0} tweens)", _tweens.Count );
 #endif
 			
-			if( _instance != null && _tweens.Count == 0 )
+			if( instance!=null && _tweens.Count == 0 )
 			{
 				// disable ourself if we have no more tweens
-				_instance.enabled = false;
+				instance.enabled = false;
 			}
 			
 			return true;
